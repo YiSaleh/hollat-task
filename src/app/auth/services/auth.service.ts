@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
@@ -7,11 +6,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
   private dataSubject: BehaviorSubject<any> = new BehaviorSubject<string>('');
   public data$: Observable<string> = this.dataSubject.asObservable();
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   isAuthenticated() {
-    return !!localStorage.getItem('token');
-  }
+    if (typeof window !== 'undefined' && window.localStorage) {
+
+    return (localStorage.getItem('token'))
+  }else
+return 0}
   updateData(newData: {}): void {
     this.dataSubject.next(newData);
   }
@@ -30,10 +32,7 @@ export class AuthService {
 
  
 
-  signUp(body: any) {
-    const url = `/api/merchant/auth/register`;
-    return this.http.post<any>(url, body);
-  }
+  
 
 
 }

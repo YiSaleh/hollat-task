@@ -73,14 +73,7 @@ export class SharedTableComponent implements AfterViewInit, OnChanges {
 
   dataSource: MatTableDataSource<any[]> = new MatTableDataSource<any[]>([]);
   @Output() sortDataEvent = new EventEmitter<any>();
-  @Output() openDialogEvent = new EventEmitter<any>();
 
-  @Input() pageSize: number = 5;
-  @Input() dynamicPageSize: any = 5;
-  total!: number;
-  @Output() idEmitted = new EventEmitter<any>();
-  @Output() pageChanged = new EventEmitter<number>();
-  @Output() deleteClicked = new EventEmitter<string>();
 
   constructor(
     private cdref: ChangeDetectorRef,
@@ -123,13 +116,7 @@ ngOnInit(){
     this.sortDataEvent.emit(event);
   }
 
-  deleteRow(id: string) {
-    this.deleteClicked.emit(id);
-  }
 
-  openDialog(e: any) {
-    this.openDialogEvent.emit(e);
-  }
 
   getColumns() {
     return this.displayedColumns.filter(
@@ -143,15 +130,5 @@ ngOnInit(){
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  selectRow(row: any, e: any) {
-    this.selection.toggle(row);
-    console.log(e.checked);
-    if (e.checked) {
-      this.selectedIds.push(row.id);
-    } else {
-      this.selectedIds = this.selectedIds.filter((id: any) => id !== row.id);
-    }
 
-    this.idEmitted.emit(this.selectedIds);
-  }
 }

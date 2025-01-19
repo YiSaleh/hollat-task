@@ -58,12 +58,13 @@ export class LoginComponent implements OnInit {
       // todo use subscribe when provide api
    
 //todo I assumed that role admin == 0
+if (typeof window !== 'undefined' && window.localStorage) {
 
           localStorage.setItem('role', this.authService.login(this.loginForm.value));
           localStorage.setItem('token', '123');
           localStorage.setItem('id', '1');
 
-          this.router.navigate(['/list-beneficiaries']);
+          this.router.navigate(['/list-beneficiaries']);}
 
       
         (err: { error: { error: string; }; }) => {
