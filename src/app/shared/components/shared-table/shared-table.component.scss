@@ -1,0 +1,229 @@
+@import "../../../../variables.scss";
+
+.table-wrapper {
+  overflow-x: auto;
+  text-transform: capitalize;
+}
+
+::ng-deep {
+  .mat-sort-header-container {
+    white-space: nowrap !important;
+  }
+
+  .mat-mdc-table {
+    display: table;
+    > .mat-mdc-header-row,
+    > .mat-mdc-row {
+      display: table-row;
+
+      > .mat-mdc-header-cell,
+      > .mat-mdc-cell {
+        display: table-cell;
+        height: 64px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .mat-mdc-cell {
+    color: $primary;
+    font-size: 14px;
+    font-weight: 400;
+    // white-space: nowrap;
+    // min-width: fit-content;
+  }
+
+  .mat-mdc-header-row {
+    border-radius: 8px 8px 0px 0px;
+    background: #f8f8f8 !important;
+    min-height: 64px;
+    overflow: hidden;
+    .mat-mdc-header-cell {
+      color: #8e95a9;
+      font-size: 14px;
+      font-weight: 600;
+      border-bottom-color: #e9eaf3;
+    }
+  }
+
+  .mat-mdc-row {
+    min-height: 64px;
+    margin: 10px 0;
+  }
+
+  .mdc-data-table__row:last-child .mat-mdc-cell {
+    border-bottom: 1px solid #e9eaf3 !important;
+  }
+}
+
+.card {
+  width: 70px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 500;
+  border: none;
+  &.active-card {
+    color: #006b62;
+    background: #c3e3de;
+  }
+  &.in-active-card {
+    color: red;
+    background: #ffe2e5;
+  }
+  &.pending-card {
+    color: #ffa800;
+    background: #fff4de;
+  }
+  &.inialized-card {
+    color: #3f69c3;
+    background: #d7d6e8;
+  }
+}
+.user {
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  .pagination-previous {
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    &.disabled {
+      opacity: 0.7;
+    }
+  }
+}
+
+.g-bubble-container {
+  display: flex;
+  gap: 4px;
+}
+
+.g-bubble:hover {
+  background-color: $primary;
+  color: white;
+}
+
+.g-bubble,
+.g-dot {
+}
+
+.g-bubble__active {
+  display: flex;
+  width: 38px;
+  height: 38px;
+  padding: 5px 4px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $primary;
+  color: $primary;
+}
+
+.g-dot {
+  border: 1px solid #dfe3e8;
+  background: #fff;
+  color: #212b36;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: auto;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination {
+  ::ng-deep {
+    .ngx-pagination {
+      display: flex;
+      gap: 8px;
+      margin-top: 64px;
+      li {
+        width: 38px;
+        height: 38px;
+        padding: 5px 4px;
+        cursor: pointer;
+        border-radius: 4px;
+        border: 1px solid #dfe3e8;
+        background: #fff;
+        &:hover {
+          background: $primary;
+          a {
+            color: white;
+          }
+        }
+        a {
+          text-decoration: none;
+          &:hover {
+            background: none;
+          }
+        }
+        &.current {
+          background: $primary !important;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        &.pagination-previous,
+        &.pagination-next {
+          background-color: $primary;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+.total {
+  display: flex;
+  justify-content: flex-end;
+
+  h5 {
+    color: $primary;
+  }
+  div {
+    font-size: 18px;
+  }
+}
+::ng-deep {
+  .ngx-pagination .pagination-next a:after,
+  .ngx-pagination .pagination-next.disabled:after,
+  .ngx-pagination .pagination-previous a:before,
+  .ngx-pagination .pagination-previous.disabled:before {
+    display: none !important;
+  }
+}
+.description {
+  // max-width: 30%;
+}
+/* Structure */
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}

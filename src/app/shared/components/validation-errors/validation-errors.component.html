@@ -1,0 +1,54 @@
+<section class="errors" *ngIf="!mismatchError">
+    <div *ngIf="isSubmitted && errors" class="error">
+      <img src="assets/icons/icons/error.svg" />
+
+      <div class="error" *ngIf="errors['required']">
+        <p class="errors__error__text">
+          This field is required
+        </p>
+      </div>
+      <div class="error" *ngIf="errors['pattern']">
+        <p class="errors__error__text">
+          please enter a valid email
+        </p>
+      </div>
+      <div class="error" *ngIf="errors['hasNumber']">
+        <p class="errors__error__text">
+          Password sahould have at least one number
+        </p>
+      </div>
+
+      <div class="error" *ngIf="errors['specialCharacter']">
+        <p class="errors__error__text">
+          Password should have at least one special character ex:# , $ , % , *
+        </p>
+      </div>
+
+      <div class="error" *ngIf="errors['upperCase']">
+        <p class="errors__error__text">
+          Password sahould have at least one upper case character
+        </p>
+      </div>
+
+      <div class="error" *ngIf="errors['minLength']">
+        <p class="errors__error__text">
+          Password min length is 8 characters
+        </p>
+      </div>
+
+      <div class="error" *ngIf="errors['lowerCase']">
+        <p class="errors__error__text">
+          Password sahould have at least one lower case character
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section *ngIf="mismatchError" class="input-container__errors">
+    <div class="input-container__errors__error">
+      <img src="assets/images/auth/icons/error.svg" />
+      <p class="errors__error__text">
+        passwords doesn't match
+      </p>
+    </div>
+  </section>

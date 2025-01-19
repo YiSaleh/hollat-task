@@ -1,0 +1,41 @@
+<div class="input-container">
+    <label class="input-container__label"
+      >{{ label }}<span *ngIf="required" class="required">*</span></label
+    >
+    <div
+      class="input-container__wrapper"
+      [ngClass]="{
+        'input-container__wrapper-error': isSubmitted && errors,
+        'auth-input': isAuthInput
+      }"
+    >
+      <img [src]="icon" *ngIf="icon" />
+  
+      <input
+        #passwordInput
+        class="input-container__wrapper__input"
+        [type]="type"
+        [placeholder]="placeholder"
+        (keypress)="changedValue($event)"
+        [(ngModel)]="input"
+        (ngModelChange)="onChange($event)"
+        (blur)="onTouched()"
+        [disabled]="isDisabled"
+        [accept]="accept"
+      />
+  
+      <img
+        class="input-container__wrapper__eye-slash"
+        *ngIf="isPassword"
+        [src]="passwordIconSrc"
+        (click)="toggleShowPassword()"
+      />
+    </div>
+  
+    <app-validation-errors
+      [isSubmitted]="isSubmitted"
+      [errors]="errors"
+      [mismatchError]="mismatchError"
+    ></app-validation-errors>
+  </div>
+  

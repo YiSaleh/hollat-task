@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "variables.scss";
+
+.wrapper{
+    padding: 21px 16px;
+    border-radius: 16px;
+    border: 1px solid #dcdddc;
+    background: white;
+    margin-top: 10vh;
+}
+
+label{
+font-weight: 500;
+color: $primary ;
+
+}
+.custom-snackbar {
+    color: green; /* Text color */
+    font-weight: bold;
+  }

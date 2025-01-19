@@ -1,0 +1,98 @@
+<div class="contain">
+  <section class="login-container">
+    <section class="login-info">
+      <h2 class="login-info__title">Sign Up</h2>
+      <section class="dynamic-part">
+        <form [formGroup]="signUpForm">
+          <!-- Name Input -->
+          <app-general-input
+            type="text"
+            formControlName="name"
+            label="Name"
+            placeholder="Enter your Name"
+            [errors]="getControlErrors('name')"
+            [isSubmitted]="isSubmitted"
+            [isAuthInput]="true"
+          ></app-general-input>
+
+          <!-- Email Input -->
+          <app-general-input
+            type="text"
+            formControlName="email"
+            label="Email"
+            placeholder="Enter Your Mail"
+            [errors]="getControlErrors('email')"
+            [isSubmitted]="isSubmitted"
+            [isAuthInput]="true"
+          ></app-general-input>
+
+          <!-- Budget Input -->
+          <app-general-input
+            type="tel"
+            formControlName="budget"
+            label="Budget"
+            placeholder="Enter Your Budget"
+            [isAuthInput]="true"
+
+            [errors]="getControlErrors('budget')"
+          ></app-general-input>
+
+          <!-- Gender Radio Buttons -->
+           <div>Gender</div>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="1">Option 1</mat-radio-button>
+            <mat-radio-button value="2">Option 2</mat-radio-button>
+          </mat-radio-group>
+
+          <!-- Technologies Multi-Select -->
+          <app-general-input
+          type="text"
+          formControlName="techs"
+          label="Technologies"
+          placeholder="Enter Technologies"
+          [errors]="getControlErrors('techs')"
+          [isSubmitted]="isSubmitted"
+          [isAuthInput]="true"
+
+        ></app-general-input>
+
+          <!-- Password Input -->
+          <app-general-input
+            type="password"
+            formControlName="password"
+            label="Password"
+            placeholder="Enter Your Password"
+            [isPassword]="true"
+            [errors]="getControlErrors('password')"
+            [isSubmitted]="isSubmitted"
+            [isAuthInput]="true"
+          ></app-general-input>
+
+          <!-- Confirm Password Input -->
+          <app-general-input
+            type="password"
+            formControlName="confirm_password"
+            label="Confirm Password"
+            placeholder="Retype Your Password"
+            [isPassword]="true"
+            [errors]="getControlErrors('confirm_password')"
+            [isSubmitted]="isSubmitted"
+            [mismatchError]="getPasswordMismatchError()"
+            [isAuthInput]="true"
+          ></app-general-input>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">
+            Sign Up
+          </button>
+        </form>
+
+        <!-- Login Redirect -->
+        <section class="d-flex justify-content-center align-items-center login">
+          <p>Have an account?</p>
+          <p class="login__text" [routerLink]="['/login']">Login</p>
+        </section>
+      </section>
+    </section>
+  </section>
+</div>

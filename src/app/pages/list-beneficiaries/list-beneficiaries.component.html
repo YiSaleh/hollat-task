@@ -1,0 +1,17 @@
+
+<div class="container">
+
+    <div class="wrapper">
+
+    <app-global-table-header title="List beneficiaries"></app-global-table-header>
+<div class="row">
+
+
+<app-shared-table
+[data]="beneficiaries | async"
+[displayedColumns]="beneficiariesColumns"
+></app-shared-table>
+</div>
+</div>
+
+</div>

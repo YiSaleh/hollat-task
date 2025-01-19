@@ -1,0 +1,36 @@
+.rating-stars {
+    display: flex;
+    // justify-content: space-evenly;
+
+  }
+  
+  .star {
+    font-size: 70px;
+    color: #d3d3d3; /* Default gray */
+    transition: color 0.2s;
+  }
+  
+  .star.filled {
+    color: #ffc107; /* Yellow for filled stars */
+  }
+  
+  .star.hover-enabled:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+
+  }
+  h1{
+    padding-bottom: 1rem;
+
+  }
+  .stars {
+    display: flex;
+    cursor: pointer;
+  }
+  .star {
+    font-size: 24px;
+    color: gray;
+  }
+  .star.filled {
+    color: gold;
+  }

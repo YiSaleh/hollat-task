@@ -1,0 +1,53 @@
+<div class="contain">
+    <section class="login-container">
+      <section class="login-info">
+  
+        <h2 class="login-info__title">Login</h2>
+     
+        <section class="dynamic-part">
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <app-general-input
+      type="text"
+      formControlName="email"
+      label="Email"
+      placeholder="Enter Your Mail"
+      [errors]="getControlErrors('email')"
+      [isSubmitted]="isSubmitted"
+      [isAuthInput]="true"
+    ></app-general-input>
+  
+    <app-general-input
+      type="password"
+      formControlName="password"
+      label="Password"
+      placeholder="Enter Your Password"
+      [isPassword]="true"
+      [errors]="getControlErrors('password')"
+      [isSubmitted]="isSubmitted"
+      [isAuthInput]="true"
+    ></app-general-input>
+    <div class="error
+    ">
+  
+      {{errorMsg}}
+    </div>
+    <section class="remember-me">
+
+      <a routerLink="/auth/forgot-password">Forgot Password?</a>
+    </section>
+    <button [disabled]="disabled" class="submit" type="submit">Submit</button>
+</form>
+  
+  
+  
+  <section class="d-flex justify-content-center align-items-center signup">
+    <p>Don't Have an account?</p>
+    <p class="signup__text" [routerLink]="['/register']">Signup</p>
+  </section>
+</section>
+</section>
+
+
+</section>
+</div>

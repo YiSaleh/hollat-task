@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="wrapper">
+    <app-global-table-header [title]="element.name + '\'s profile'">
+    </app-global-table-header>
+
+    <div class="row">
+        <label class=" col-sm-10 col-md-2">Name:</label>
+        <div class="col-10">
+          {{ element.name }}
+        </div>
+      </div>
+      <div class="row">
+        <label class=" col-sm-10 col-md-2">Gender:</label>
+        <div class="col-10">
+          {{ element.gender }}
+        </div>
+      </div>
+      <div class="row">
+        <label class=" col-sm-10 col-md-2">Title:</label>
+        <div class="col-10">
+          {{ element.title }}
+        </div>
+      </div>
+      <div class="row">
+        <label class=" col-sm-10 col-md-2">Technologies:</label>
+        <div class="col-10">
+          {{ element.technology }}
+        </div>
+      </div>
+      <div class="row">
+        <label class=" col-sm-10 col-md-2">Contact Info:</label>
+        <div class="col-10">
+          {{ element.info }}
+        </div>
+      </div>
+
+      <div class="row">
+        <label class=" col-sm-10 col-md-2">Rating:</label>
+        <div class="col-10">
+            <app-rating-stars
+            [(rating)]="element.rate"
+            [benefId]="element.id"
+            (ratingChange)="onRatingChange()"
+              [maxStars]="5"
+              ></app-rating-stars>   
+                 </div>
+      </div>  
+      <div class="btn-container">
+
+          <button *ngIf="this.role === '0' && element.status === 0"  class="submit" type="submit">Approve</button>
+      </div>
+
+</div>
+</div>

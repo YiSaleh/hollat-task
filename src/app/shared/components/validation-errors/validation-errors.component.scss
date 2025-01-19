@@ -1,0 +1,27 @@
+@import "../../../../variables.scss";
+
+.errors {
+  width: 100%;
+  color: #ff4c24;
+  font-size: 12px;
+  font-weight: 500;
+  box-sizing: border-box;
+  height: 22px;
+  &__error {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 22px;
+    &__text {
+      margin: 0;
+    }
+  }
+}
+
+.error {
+  display: none;
+}
+
+.error:first-of-type {
+  display: flex;
+}

@@ -1,0 +1,16 @@
+<div class="rating-stars">
+    <i
+      *ngFor="let star of stars; let index = index"
+      class="star"
+      [class.hover-enabled]="!sameUser"
+
+      [ngClass]="{'filled': index < hoverIndex || index < currentRating}"
+      (click)="setRating(index + 1)"
+      [class.filled]="index < rating"
+      (mouseenter)="setHover(index + 1)"
+      (mouseleave)="clearHover()"
+    >
+      ★
+    </i>
+  </div>
+  

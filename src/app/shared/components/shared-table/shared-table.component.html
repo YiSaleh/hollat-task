@@ -1,0 +1,89 @@
+<div class="table-wrapper">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="search by name or budget" #input>
+  </mat-form-field>
+  <mat-table
+    class="full-width-table"
+    matSort
+    aria-label="Elements"
+    [trackBy]="identity"
+    [dataSource]="
+      dataSource.data
+      
+    "
+    matSort
+  >
+    <ng-container *ngFor="let item of getColumns()" [matColumnDef]="item.key">
+      <mat-header-cell *matHeaderCellDef> <span *ngIf="item.sortable" mat-sort-header>{{ item?.displayName }}</span>
+        <span *ngIf="!item.sortable">{{ item?.displayName }}</span></mat-header-cell>
+      
+      <mat-cell *matCellDef="let element">{{
+        element[item?.key] ?? 0
+      }}</mat-cell>
+    </ng-container>
+
+    <ng-container [matColumnDef]="'actions'">
+      <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div class="d-flex gap-3">
+          <!-- <img
+            class="cursor-pointer"
+            [routerLink]="['edit', element?.id]"
+            src="assets/images/tables/edit.svg"
+          /> -->
+       
+          <img
+            class="cursor-pointer"
+            [routerLink]="['/view']"
+            skipLocationChange
+         
+             [queryParams]="{ element: stringify(element) }"
+
+          
+            src="assets/icons/icons/view.svg"
+          />
+        </div>
+      </mat-cell>
+    </ng-container>
+
+
+    <ng-container [matColumnDef]="'status'">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Status</mat-header-cell
+      >
+      <mat-cell *matCellDef="let element">
+        <div *ngIf="element?.status == 0" class="card pending-card">
+          Pending
+        </div>
+
+        <div *ngIf="element?.status == 1" class="card active-card">
+          Approved
+        </div>
+      </mat-cell>
+    </ng-container>
+    
+
+    <ng-container [matColumnDef]="'rating'">
+      <mat-header-cell *matHeaderCellDef
+        >Rating</mat-header-cell
+      >
+
+      <mat-cell *matCellDef="let element">
+        <div class="d-flex gap-1 align-items-center">
+          <div *ngFor="let star of element?.rate | range; let i = index">
+            <img src="../../../../assets/icons/icons/star-yellow.svg" />
+          </div>
+          <div *ngFor="let star of 5 - element?.rate | range; let i = index">
+            <img src="./../../../../assets/icons/icons/star-grey.svg" />
+          </div>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columns"></mat-row>
+  </mat-table>
+  
+  
+</div>

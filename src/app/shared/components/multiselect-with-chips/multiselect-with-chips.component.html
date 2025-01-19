@@ -1,0 +1,31 @@
+<mat-form-field appearance="outline">
+  <mat-select
+    [disabled]="isDisabled"
+    multiple
+    [placeholder]="placeholder"
+    [(ngModel)]="input"
+    (ngModelChange)="selectChip($event)"
+    (blur)="onTouched()"
+  >
+    <mat-select-trigger>
+      <mat-chip-listbox [disabled]="isDisabled">
+        <mat-chip
+          *ngFor="let chip of input"
+          [removable]="true"
+          (removed)="onItemRemoved(chip)"
+          [disabled]="isDisabled"
+        >
+          {{ chip.name }}
+          <mat-icon matChipRemove>x</mat-icon>
+        </mat-chip>
+      </mat-chip-listbox>
+    </mat-select-trigger>
+
+    <mat-option
+      [disabled]="isDisabled"
+      *ngFor="let chip of chipsList"
+      [value]="chip"
+      >{{ chip.name }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
